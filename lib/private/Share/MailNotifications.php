@@ -400,13 +400,14 @@ class MailNotifications {
 	 * @param string $senderDisplayName
 	 *
 	 * @return string[]
+	 *
+	 * senderDisplayName removed for protection against e-mail impersonation
 	 */
 	protected function getFrom($l10n, $senderDisplayName) {
 		return [
 			Util::getDefaultEmailAddress('sharing-noreply') => (string) $l10n->t(
-				'%s via %s',
+				'%s',
 				[
-					$senderDisplayName,
 					$this->defaults->getName()
 				]
 			)
